@@ -1,0 +1,14 @@
+# Local-development connection only. Copy to dbt/profiles.yml.
+# dbt/profiles.yml is excluded from version control.
+nyc_taxi_local:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 127.0.0.1
+      port: 5433
+      user: taxi_dev
+      password: local_demo_password
+      dbname: nyc_taxi
+      schema: dbt_dev
+      threads: 4

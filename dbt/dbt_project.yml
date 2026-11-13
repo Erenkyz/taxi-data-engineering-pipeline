@@ -1,0 +1,8 @@
+name: nyc_taxi_analytics
+version: '1.0.0'
+config-version: 2
+profile: nyc_taxi_local
+model-paths: ["models"]
+models:
+  nyc_taxi_analytics:
+    +materialized: view

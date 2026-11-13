@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: stg_yellow_taxi_trips
+    description: Valid taxi rides from the selected year and months, sourced from raw trips.
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+  - name: fct_daily_taxi_metrics
+    description: Daily metrics across the selected, cleaned monthly samples.
+    columns:
+      - name: trip_date
+        data_tests:
+          - unique
+          - not_null
+      - name: total_trips
+        data_tests:
+          - not_null

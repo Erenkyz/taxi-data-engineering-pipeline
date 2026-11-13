@@ -1,0 +1,13 @@
+# Container-only dbt profile. Database access is via the Compose postgres service.
+nyc_taxi_local:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('PGHOST') }}"
+      port: 5432
+      user: "{{ env_var('PGUSER') }}"
+      password: "{{ env_var('PGPASSWORD') }}"
+      dbname: "{{ env_var('PGDATABASE') }}"
+      schema: dbt_dev
+      threads: 4
