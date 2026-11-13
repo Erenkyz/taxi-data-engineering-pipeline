@@ -1,0 +1,40 @@
+# Python / Windows
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.vscode/
+.idea/
+
+# Local datasets, credentials, and environment
+/data/
+.env
+.env.*
+!.env.example
+/dbt/profiles.yml
+*.pem
+*.key
+
+# dbt generated files
+/dbt/target/
+/dbt/logs/
+/dbt/dbt_packages/
+/dbt/.user.yml
+
+# Airflow generated state (keep DAGs and dbt profile templates)
+/airflow/logs/
+/airflow/__pycache__/
+/airflow/airflow.db*
+/airflow/airflow.cfg
+/airflow/standalone_admin_password.txt
+/airflow/simple_auth_manager_passwords.json.generated
+/airflow/dags/__pycache__/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+
+# Local generated dbt metadata
+/dbt/.user.yml

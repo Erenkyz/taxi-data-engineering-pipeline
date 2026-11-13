@@ -1,0 +1,16 @@
+.git
+.gitignore
+.venv
+venv
+data
+__pycache__
+**/__pycache__
+**/*.pyc
+dbt/target
+dbt/logs
+dbt/dbt_packages
+dbt/profiles.yml
+airflow/logs
+docs/*.png
+.env
+.env.*

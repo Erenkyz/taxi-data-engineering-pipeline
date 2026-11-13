@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nyc_taxi_postgres
+    environment:
+      POSTGRES_DB: nyc_taxi
+      POSTGRES_USER: taxi_dev
+      POSTGRES_PASSWORD: local_demo_password
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - taxi_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taxi_dev -d nyc_taxi"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  taxi_postgres_data:

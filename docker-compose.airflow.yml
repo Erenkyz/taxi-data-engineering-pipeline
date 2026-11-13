@@ -1,0 +1,29 @@
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: nyc-taxi-airflow:local
+    command: standalone
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      PGHOST: postgres
+      PGPORT: "5432"
+      PGDATABASE: nyc_taxi
+      PGUSER: taxi_dev
+      PGPASSWORD: local_demo_password
+      AIRFLOW_HOME: /opt/airflow
+    volumes:
+      - airflow_state:/opt/airflow
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/dbt_profiles:/opt/project/airflow_profiles:ro
+      - ./dbt:/opt/project/dbt
+      - ./src:/opt/project/src:ro
+      - ./sql:/opt/project/sql:ro
+      - ./data:/opt/project/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  airflow_state:
