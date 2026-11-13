@@ -140,7 +140,7 @@ The staging model also filters out records with invalid timestamps, non-positive
 
 The screenshot below shows a successful five-task Airflow run using the configurable monthly ingestion tasks:
 
-![Airflow DAG: all five monthly ingestion, dbt model, and quality-test tasks succeeded](docs/airflow_pipeline.png)
+![Airflow DAG: all five monthly ingestion, dbt model, and quality-test tasks succeeded](airflow_pipeline.png)
 
 ## Limits and next improvements
 
